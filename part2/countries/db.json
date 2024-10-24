@@ -1,0 +1,22 @@
+{
+    "countries": [
+        {
+        "id": 1,
+        "name": "USA",
+        "capital": "Washington, D.C.",
+        "population": 331449281
+        },
+        {
+        "id": 2,
+        "name": "Canada",
+        "capital": "Ottawa",
+        "population": 38131104
+        },
+        {
+        "id": 3,
+        "name": "Mexico",
+        "capital": "Mexico City",
+        "population": 128932753
+        }
+    ]
+}

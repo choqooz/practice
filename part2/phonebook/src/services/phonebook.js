@@ -1,29 +1,32 @@
 import axios from 'axios';
-const baseUrl = 'http://localhost:3001/persons';
+const baseUrl = 'http://localhost:3001/api/persons';
 
-const getAll = () => {
+const getAll = async () => {
   const request = axios.get(baseUrl);
-  return request.then((r) => r.data);
+  const r = await request;
+  return r.data;
 };
 
-const create = (newObject) => {
+const create = async (newObject) => {
   const request = axios.post(baseUrl, newObject);
-  return request.then((r) => r.data);
+  const r = await request;
+  return r.data;
 };
 
-const update = (id, newObject) => {
-  return axios
-    .put(`${baseUrl}/${id}`, newObject)
-    .then((response) => response.data)
-    .catch((error) => {
-      // Esto es para asegurarse de que el error sea enviado de vuelta a la función
-      throw error;
-    });
+const update = async (id, newObject) => {
+  try {
+    const response = await axios.put(`${baseUrl}/${id}`, newObject);
+    return response.data;
+  } catch (error) {
+    // Esto es para asegurarse de que el error sea enviado de vuelta a la función
+    throw error;
+  }
 };
 
-const deletePerson = (id) => {
+const deletePerson = async (id) => {
   const request = axios.delete(`${baseUrl}/${id}`);
-  return request.then((r) => r.data);
+  const r = await request;
+  return r.data;
 };
 
 export default { getAll, create, update, deletePerson };
